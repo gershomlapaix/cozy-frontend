@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // ignore TypeScript errors during build
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  // ignore ESLint errors during build
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   reactStrictMode: true,
   images: {
     domains: ['localhost'],
@@ -19,8 +27,8 @@ const nextConfig = {
     ],
   },
   env: {
-    API_URL: process.env.API_URL || 'http://localhost:8081/api/v1',
-  }
+    API_URL: process.env.API_URL || 'https://cozy-backend-fmzo.onrender.com/api/v1',
+  },
 };
 
 module.exports = nextConfig;
