@@ -3,9 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import LoginForm from "@/components/auth/login-form";
+import { Suspense } from "react";
 
 export default function LoginPage() {
- 
+
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
       {/* Left Side - Login Form */}
@@ -13,21 +14,18 @@ export default function LoginPage() {
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <Link href="/" className="inline-flex items-center">
-              {/* <Image
-                src="/images/logo.svg"
-                alt="CozyStay Logo"
-                width={40}
-                height={40}
-              /> */}
               <p className="bg-gray-700 border border-gray-500 py- rounded-md px-2 font-bold text-white text-6xl">C</p>
               <span className="ml-2 text-xl font-bold text-brand-700">CozyStay</span>
             </Link>
           </div>
-          
-          <LoginForm />
+
+          <Suspense fallback={<div>Loading...</div>}>
+            <LoginForm />
+          </Suspense>
+
         </div>
       </div>
-      
+
       {/* Right Side - Image */}
       <div className="hidden lg:block lg:w-1/2 relative">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-600/90 to-brand-800/90 z-10"></div>
